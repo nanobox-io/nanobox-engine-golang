@@ -1,0 +1,13 @@
+# The Enginefile provides Nanobox with information about the engine
+# View the documentation at https://docs.nanobox.io/engines/enginefile/
+
+name: 'golang'
+version: '0.1.0'
+summary: 'Nanobox engine for generic golang deployments.'
+language: golang
+stability: 'stable'
+license: 'MPL'
+generic: true
+
+authors:
+  - lintong@nanobox.io
