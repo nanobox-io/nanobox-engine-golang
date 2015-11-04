@@ -12,14 +12,14 @@ nos_init $@
 . ${engine_lib_dir}/common.sh
 
 # run Boxfile hooks defined in the "before" node
-run_hooks "before"
+golang_before
 
 # run Boxfile hooks defined in the "exec" node
-run_hooks "exec"
+golang_exec
 
 # run Boxfile hooks defined in the "after" node
-run_hooks "after"
+golang_after
 
 # copy the source code into the live directory
-print_bullet "Copying release into live code directory..."
-rsync -a $(payload 'code_dir')/ $(payload 'live_dir')
+nos_print_bullet "Copying release into live code directory..."
+rsync -a $(payload 'nos_code_dir')/ $(payload 'nos_live_dir')
