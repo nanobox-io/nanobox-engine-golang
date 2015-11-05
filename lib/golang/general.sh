@@ -11,6 +11,7 @@ golang_create_boxfile() {
 golang_boxfile_payload() {
     cat <<-END
 {
+  "code_dir": $(nos_code_dir)
 }
 END
 }
@@ -24,13 +25,15 @@ golang_install_runtime() {
 }
 
 golang_before() {
-  if nos_validate_presence 'boxfile_before_exec' ; then
+  if (nos_validate_presence 'boxfile_before_exec' &> /dev/null) ; then
     nos_run_hooks "before"
+  else
+    gom_install && return 0
   fi
 }
 
 golang_exec() {
-  if nos_validate_presence 'boxfile_exec' ; then
+  if (nos_validate_presence 'boxfile_exec' &> /dev/null) ; then
     nos_run_hooks "exec"
   else
     gom_build && return 0
@@ -38,15 +41,13 @@ golang_exec() {
 }
 
 golang_after() {
-  if nos_validate_presence 'boxfile_after_exec' ; then
+  if (nos_validate_presence 'boxfile_after_exec' &> /dev/null) ; then
     nos_run_hooks "after"
   fi
 }
 
 golang_prep_env() {
-  nos_set_evar 'GOROOT' "$(nos_cache_dir)/go"
-  mkdir -p $GOROOT
-  nos_set_evar 'GOPATH' "$(nos_code_dir)/go"
+  nos_set_evar 'GOPATH' "$(nos_code_dir)/_vendor"
   mkdir -p $GOPATH/bin
-  nos_set_evar 'PATH'   "$GOROOT/bin:$PATH"
+  nos_set_evar 'PATH' "$GOPATH/bin:$PATH"
 }

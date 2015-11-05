@@ -9,7 +9,7 @@
 nos_init $@
 
 # source common lib
-. ${engine_lib_dir}/common.sh
+. ${engine_lib_dir}/golang.sh
 
 # run Boxfile hooks defined in the "before" node
 golang_before
@@ -22,4 +22,4 @@ golang_after
 
 # copy the source code into the live directory
 nos_print_bullet "Copying release into live code directory..."
-rsync -a $(payload 'nos_code_dir')/ $(payload 'nos_live_dir')
+rsync -a "$(nos_code_dir)/" "$(nos_live_dir)"

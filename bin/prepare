@@ -9,7 +9,7 @@
 nos_init $@
 
 # source common lib
-. ${engine_lib_dir}/common.sh
+. ${engine_lib_dir}/golang.sh
 
 # install go
 golang_install_runtime
@@ -18,7 +18,7 @@ golang_install_runtime
 golang_prep_env
 
 # install gom binary
-golang_install_gom
+install_gom
 
 # persist all environment variables 
 nos_persist_evars
