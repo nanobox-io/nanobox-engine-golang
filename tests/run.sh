@@ -1,7 +1,7 @@
 #!/bin/bash
 FAILED=0
 VERSION=$1
-for file in `find . -type f -name '*_test.*'`; do
+for file in `find . -type f -name '*_test.*' -not -path "*/sample-go/*"`; do
   echo running $file
   FOLDER=`dirname $0`
   read -r -d '' TEST <<EOF
