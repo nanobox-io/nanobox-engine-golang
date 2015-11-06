@@ -5,7 +5,7 @@ golang_create_boxfile() {
   nos_template \
     "boxfile.mustache" \
     "-" \
-    "$(boxfile_payload)"
+    "$(golang_boxfile_payload)"
 }
 
 golang_boxfile_payload() {
