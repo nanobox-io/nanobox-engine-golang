@@ -11,7 +11,7 @@ golang_create_boxfile() {
 golang_boxfile_payload() {
     cat <<-END
 {
-  "code_dir": $(nos_code_dir)
+  "code_dir": $(nos_live_dir)
 }
 END
 }
