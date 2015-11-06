@@ -2,7 +2,7 @@
 # vim: ts=2 sw=2 ft=bash noet
 
 golang_create_boxfile() {
-  template \
+  nos_template \
     "boxfile.mustache" \
     "-" \
     "$(boxfile_payload)"
