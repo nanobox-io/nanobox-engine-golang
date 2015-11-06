@@ -1,0 +1,3 @@
+[submodule "tests/sample-go"]
+	path = tests/sample-go
+	url = git@github.com:nanobox-apps/sample-go.git

@@ -22,6 +22,7 @@ golang_runtime() {
 
 golang_install_runtime() {
   nos_install "$(golang_runtime)"
+  nos_install 'mercurial-3'
 }
 
 golang_before() {
