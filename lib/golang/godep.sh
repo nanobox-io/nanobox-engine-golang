@@ -2,7 +2,7 @@
 # vim: ts=2 sw=2 ft=bash noet
 
 has_godeps() {
-  [[ -d+ $(nos_code_dir)/Godeps ]] && echo "true" || echo "false"
+  [[ -d $(nos_code_dir)/Godeps ]] && echo "true" || echo "false"
 }
 
 install_godep() {

@@ -3,15 +3,15 @@
 
 go_get() {
   golang_prep_env
-  [[ "$(has_gomfile)" = "true" ]] && (cd $(nos_code_dir); nos_run_subprocess "go get" "go get")
+  (cd $(nos_code_dir); nos_run_subprocess "go get" "go get")
 }
 
 go_build() {
   golang_prep_env
-  [[ "$(has_godeps)" = "true" ]] && (cd $(nos_code_dir); nos_run_subprocess "go build" "go build")
+  (cd $(nos_code_dir); nos_run_subprocess "go build" "go build")
 }
 
 go_install() {
   golang_prep_env
-  [[ "$(has_godeps)" = "true" ]] && (cd $(nos_code_dir); nos_run_subprocess "go install" "go install")
+  (cd $(nos_code_dir); nos_run_subprocess "go install" "go install")
 }
