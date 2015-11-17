@@ -1,5 +1,3 @@
-build:
-{{#has_gomfile}}
-  exec:
-    - 'gom build'
-{{/has_gomfile}}
+env:
+  GOPATH: "{{code_dir}}/_vendor"
+  PATH: "$GOPATH/bin:$PATH"
