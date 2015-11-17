@@ -20,6 +20,9 @@ golang_prep_env
 # install gom binary
 install_gom
 
+# install godep binary
+install_godep
+
 # persist all environment variables 
 nos_persist_evars
 
