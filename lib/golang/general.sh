@@ -27,6 +27,7 @@ golang_install_runtime() {
 
 golang_before() {
   if (nos_validate_presence 'boxfile_before_exec' &> /dev/null) ; then
+    golang_prep_env
     nos_run_hooks "before"
   else
     gom_install   && return 0
@@ -37,6 +38,7 @@ golang_before() {
 
 golang_exec() {
   if (nos_validate_presence 'boxfile_exec' &> /dev/null) ; then
+    golang_prep_env
     nos_run_hooks "exec"
   else
     gom_build   && return 0
@@ -47,6 +49,7 @@ golang_exec() {
 
 golang_after() {
   if (nos_validate_presence 'boxfile_after_exec' &> /dev/null) ; then
+    golang_prep_env
     nos_run_hooks "after"
   fi
 }
