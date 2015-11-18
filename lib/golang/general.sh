@@ -27,22 +27,29 @@ golang_install_runtime() {
 
 golang_before() {
   if (nos_validate_presence 'boxfile_before_exec' &> /dev/null) ; then
+    golang_prep_env
     nos_run_hooks "before"
   else
-    gom_install && return 0
+    gom_install   && return 0
+    godep_restore && return 0
+    go_get        && return 0
   fi
 }
 
 golang_exec() {
   if (nos_validate_presence 'boxfile_exec' &> /dev/null) ; then
+    golang_prep_env
     nos_run_hooks "exec"
   else
-    gom_build && return 0
+    gom_build   && return 0
+    godep_build && return 0
+    go_build    && return 0
   fi
 }
 
 golang_after() {
   if (nos_validate_presence 'boxfile_after_exec' &> /dev/null) ; then
+    golang_prep_env
     nos_run_hooks "after"
   fi
 }

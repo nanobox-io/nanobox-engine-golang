@@ -6,7 +6,7 @@
 . /opt/nos/common.sh
 
 # initialize Nos with the original arguments
-nos_init $@
+nos_init "$@"
 
 # source common lib
 . ${engine_lib_dir}/golang.sh
@@ -19,6 +19,9 @@ golang_prep_env
 
 # install gom binary
 install_gom
+
+# install godep binary
+install_godep
 
 # persist all environment variables 
 nos_persist_evars
