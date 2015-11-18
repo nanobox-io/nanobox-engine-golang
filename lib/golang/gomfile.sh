@@ -9,11 +9,6 @@ install_gom() {
   [[ "$(has_gomfile)" = "true" ]] && (cd $(nos_code_dir); nos_run_subprocess "get gom" "go get github.com/mattn/gom")
 }
 
-go_get() {
-  golang_prep_env
-  [[ "$(has_gomfile)" = "true" ]] && (cd $(nos_code_dir); nos_run_subprocess "go get" "go get")
-}
-
 gom_install() {
   golang_prep_env
   [[ "$(has_gomfile)" = "true" ]] && (cd $(nos_code_dir); nos_run_subprocess "gom install" "gom install")
