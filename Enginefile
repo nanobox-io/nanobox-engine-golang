@@ -2,7 +2,7 @@
 # View the documentation at https://docs.nanobox.io/engines/enginefile/
 
 name: 'go'
-version: '0.1.0'
+version: '0.1.1'
 summary: 'Nanobox engine for generic golang deployments.'
 language: go
 stability: 'stable'
