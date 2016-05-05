@@ -24,6 +24,6 @@ install_gom
 install_godep
 
 # persist all environment variables 
-nos_persist_evars
+# nos_persist_evars
 
 exit 0
