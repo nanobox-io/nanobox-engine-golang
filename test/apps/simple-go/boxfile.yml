@@ -1,0 +1,12 @@
+env:
+  PORT: 3000
+build:
+  stability: beta
+  engine: '../../../nanobox-engine-golang'
+tcp1:
+  stability: beta
+  exec: './code -dbCredentials="sslmode=disable host=$POSTGRESQL1_HOST port=$POSTGRESQL1_PORT user=$POSTGRESQL1_USER password=$POSTGRESQL1_PASS dbname=$POSTGRESQL1_NAME" -port=$PORT'
+  ports:
+    - 3000:3000
+postgresql1:
+

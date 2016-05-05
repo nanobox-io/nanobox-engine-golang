@@ -1,1 +1,0 @@
-{"code_dir":"/opt/code","deploy_dir":"/data","live_dir":"/code","cache_dir":"/mnt/cache","etc_dir":"/data/etc","env_dir":"/data/etc/env.d","app":"golang-test","env":{"APP_NAME":"golang-test"},"dns":["golang-test.dev"],"port":"8080","boxfile":null,"platform":"local"}

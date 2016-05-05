@@ -17,7 +17,7 @@ END
 }
 
 golang_runtime() {
-  echo $(nos_validate "$(nos_payload "boxfile_runtime")" "string" "go-1.4")
+  echo $(nos_validate "$(nos_payload "boxfile_runtime")" "string" "go-1.6")
 }
 
 golang_install_runtime() {
