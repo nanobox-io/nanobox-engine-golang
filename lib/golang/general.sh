@@ -37,7 +37,7 @@ before() {
   fi
 }
 
-exec() {
+compile() {
   if (nos_validate_presence 'config_exec' &> /dev/null) ; then
     prep_env
     nos_run_hooks "exec"

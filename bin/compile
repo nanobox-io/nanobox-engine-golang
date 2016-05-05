@@ -19,7 +19,3 @@ compile
 
 # run Boxfile hooks defined in the "after" node
 after
-
-# copy the source code into the live directory
-nos_print_bullet "Copying release into live code directory..."
-rsync -a "$(nos_code_dir)/" "$(nos_live_dir)"

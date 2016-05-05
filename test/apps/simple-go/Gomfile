@@ -1,4 +1,4 @@
-gom 'code.google.com/p/go-uuid/uuid'
+gom 'github.com/google/go-uuid/uuid'
 gom 'github.com/jcelliott/lumber'
 gom 'github.com/gorilla/context'
 gom 'github.com/gorilla/mux'

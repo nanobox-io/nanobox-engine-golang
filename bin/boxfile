@@ -8,7 +8,7 @@
 # initialize Nos with the original arguments
 nos_init "$@"
 
-if [ -z "$(nos_payload "config_runtime")" ]; then
+if [ -z "$(nos_payload "config_package")" ]; then
 	>&2 echo "This engine requires 'package' to be set in the config"
 	exit 1
 fi

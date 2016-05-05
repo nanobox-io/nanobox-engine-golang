@@ -10,11 +10,11 @@ install_gom() {
 }
 
 gom_install() {
-  golang_prep_env
+  prep_env
   [[ "$(has_gomfile)" = "true" ]] && (cd $(nos_code_dir); nos_run_subprocess "gom install" "gom install")
 }
 
 gom_build() {
-  golang_prep_env
+  prep_env
   [[ "$(has_gomfile)" = "true" ]] && (cd $(nos_code_dir); nos_run_subprocess "gom build" "gom build")
 }

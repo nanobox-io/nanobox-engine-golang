@@ -10,11 +10,11 @@ install_godep() {
 }
 
 godep_build() {
-  golang_prep_env
+  prep_env
   [[ "$(has_godeps)" = "true" ]] && (cd $(nos_code_dir); nos_run_subprocess "godep go build" "godep go build")
 }
 
 godep_restore() {
-  golang_prep_env
+  prep_env
   [[ "$(has_godeps)" = "true" ]] && (cd $(nos_code_dir); nos_run_subprocess "godep restore" "godep restore")
 }
