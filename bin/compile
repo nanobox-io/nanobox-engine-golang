@@ -12,13 +12,13 @@ nos_init "$@"
 . ${engine_lib_dir}/golang.sh
 
 # run Boxfile hooks defined in the "before" node
-golang_before
+before
 
 # run Boxfile hooks defined in the "exec" node
-golang_exec
+compile
 
 # run Boxfile hooks defined in the "after" node
-golang_after
+after
 
 # copy the source code into the live directory
 nos_print_bullet "Copying release into live code directory..."

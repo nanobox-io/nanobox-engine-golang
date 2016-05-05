@@ -12,10 +12,10 @@ nos_init "$@"
 . ${engine_lib_dir}/golang.sh
 
 # install go
-golang_install_runtime
+install_runtime
 
 # prepare env
-golang_prep_env
+prep_env
 
 # install gom binary
 install_gom
