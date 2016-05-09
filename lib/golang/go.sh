@@ -3,15 +3,15 @@
 
 go_get() {
   prep_env
-  (cd $(nos_code_dir); nos_run_subprocess "go get" "go get")
+  (cd $(nos_code_dir)/.gopath/src/$(nos_payload "config_package"); nos_run_subprocess "go get" "go get")
 }
 
 go_build() {
   prep_env
-  (cd $(nos_code_dir); nos_run_subprocess "go build" "go build")
+  (cd $(nos_code_dir)/.gopath/src/$(nos_payload "config_package"); nos_run_subprocess "go build" "go build")
 }
 
 go_install() {
   prep_env
-  (cd $(nos_code_dir); nos_run_subprocess "go install" "go install")
+  (cd $(nos_code_dir)/.gopath/src/$(nos_payload "config_package"); nos_run_subprocess "go install" "go install")
 }

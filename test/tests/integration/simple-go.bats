@@ -89,7 +89,7 @@ setup() {
   cd /tmp/code
 
   # start the server in the background
-  simple-go &
+  ./simple-go &
 
   # grab the pid
   pid=$!
@@ -98,12 +98,14 @@ setup() {
   sleep 3
 
   # curl the index
-  run curl -s 127.0.0.1:8080 2>/dev/null
+  run curl -s 127.0.0.1:8000 2>/dev/null
 
-  expected="Node.js - Express - Hello World!"
+  expected="Hello world!"
 
   # kill the server
   kill -9 $pid > /dev/null 2>&1
+
+  echo "$output"
 
   [ "$output" = "$expected" ]
 }

@@ -1,7 +1,0 @@
-gom 'github.com/pborman/uuid'
-gom 'github.com/jcelliott/lumber'
-gom 'github.com/gorilla/context'
-gom 'github.com/gorilla/mux'
-gom 'github.com/gorilla/pat'
-gom 'github.com/lib/pq'
-gom 'github.com/lib/pq/oid'

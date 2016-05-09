@@ -1,3 +1,0 @@
-BLOBSTASHE-CLIENT
-=================
-

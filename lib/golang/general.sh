@@ -17,7 +17,7 @@ runtime() {
 
 # Install the golang runtime.
 install_runtime() {
-  nos_install "$(runtime)" 'mercurial-3' 'git' 'bzr'
+  nos_install "$(runtime)" 'mercurial' 'git' 'bzr'
 }
 
 # Uninstall build dependencies
@@ -59,5 +59,10 @@ after() {
 prep_env() {
   nos_set_evar 'GOPATH' "$(nos_code_dir)/.gopath"
   mkdir -p $GOPATH/bin
+  if [ ! -L $(nos_code_dir)/.gopath/src/$(nos_payload "config_package") ]; then
+    mkdir -p $(nos_code_dir)/.gopath/src/$(nos_payload "config_package")
+    rmdir $(nos_code_dir)/.gopath/src/$(nos_payload "config_package")
+    ln -sf $(nos_code_dir) $(nos_code_dir)/.gopath/src/$(nos_payload "config_package")
+  fi
   nos_set_evar 'PATH' "$GOPATH/bin:$PATH"
 }
