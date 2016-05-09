@@ -17,5 +17,7 @@ docker run \
   -e "PATH=$(path)" \
   --volume=${test_dir}/:/test \
   --volume=${engine_dir}/:/engine \
+  --volume=/home/vagrant/ssh:/home/gonano/.ssh \
+  --volume=/tmp/pkgsrc:/data/var/db/pkgin/cache \
   nanobox/build:v1 \
   /bin/bash

@@ -17,12 +17,12 @@ runtime() {
 
 # Install the golang runtime.
 install_runtime() {
-  nos_install "$(runtime)" 'mercurial-3'
+  nos_install "$(runtime)" 'mercurial-3' 'git' 'bzr'
 }
 
 # Uninstall build dependencies
 uninstall_build_dependencies() {
-  nos_uninstall "$(runtime)" 'mercurial-3'
+  nos_uninstall 'go' 'mercurial' 'git' 'bzr' 
 }
 
 # 

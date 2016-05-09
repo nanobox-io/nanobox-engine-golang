@@ -1,7 +1,7 @@
 package models
 
 import (
-	"github.com/google/go-uuid/uuid"
+	"github.com/pborman/uuid"
 	"database/sql"
 	"errors"
 	"fmt"

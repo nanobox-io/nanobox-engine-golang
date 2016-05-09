@@ -12,7 +12,7 @@ payload() {
   "cache_dir": "/tmp/cache",
   "etc_dir": "/data/etc",
   "env_dir": "/data/etc/env.d",
-  "config": {"package": "local/simple-go"}
+  "config": {"package": "local/simple-go", "runtime": "go-1.5"}
 }
 END
 }

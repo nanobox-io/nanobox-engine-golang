@@ -10,6 +10,9 @@ Vagrant.configure(2) do |config|
 
   config.vm.synced_folder ".", "/vagrant"
 
+  # ssh keys
+  config.vm.synced_folder "~/.ssh", "/var/.ssh"# , type: "nfs"
+
   # install docker
   config.vm.provision "shell", inline: <<-SCRIPT
     if [[ ! `which docker > /dev/null 2>&1` ]]; then
@@ -54,5 +57,14 @@ Vagrant.configure(2) do |config|
   config.vm.provision "shell", inline: <<-SCRIPT
     echo "Pulling the build image"
     docker pull nanobox/build:v1
+  SCRIPT
+
+  # copy the ssh keys
+  config.vm.provision "shell", inline: <<-SCRIPT
+    echo "Copying SSH keys"
+    mkdir -p /home/vagrant/ssh
+    cp /var/.ssh/id_rsa /home/vagrant/ssh
+    cp /var/.ssh/id_rsa.pub /home/vagrant/ssh
+    chown -R vagrant /home/vagrant/ssh
   SCRIPT
 end
