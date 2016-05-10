@@ -11,11 +11,5 @@ nos_init "$@"
 # source common lib
 . ${engine_lib_dir}/golang.sh
 
-# run Boxfile hooks defined in the "before" node
-before
-
-# run Boxfile hooks defined in the "exec" node
+# compile the project
 compile
-
-# run Boxfile hooks defined in the "after" node
-after

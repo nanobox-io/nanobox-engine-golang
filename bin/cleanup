@@ -14,4 +14,7 @@ nos_init "$@"
 # Remove build dependencies to ensure the build env is small
 uninstall_build_dependencies
 
+# Clean the build cruft out of the environment
+clean_env
+
 exit 0
