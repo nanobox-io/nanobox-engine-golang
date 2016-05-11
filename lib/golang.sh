@@ -64,13 +64,10 @@ build_cmd() {
 # will symlink the app source inside of the .gopath at the package location
 # which is specified in the config section of the boxfile.yml.
 prep_env() {
-  echo "PREP ENV"
   # Set the GOPATH environment variable to the .gopath lib_dir
   nos_persist_evar 'GOPATH' "$(nos_code_dir)/.gopath"
   # Symlink the source code into the gopath at the specified package location
-  echo "$(package_path)"
   if [ ! -L $(package_path) ]; then
-    echo "SYMLINK NOT EXIST"
     # create the full path structure
     mkdir -p $(package_path)
     # remove the child-most directory to convert to a symlink
