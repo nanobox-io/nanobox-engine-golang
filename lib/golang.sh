@@ -93,8 +93,8 @@ clean_env() {
 compile() {
   cd $(package_path)
   # fetch dependencies
-  nos_run_subprocess "go get" "$(fetch_cmd)"
+  nos_run_process "go get" "$(fetch_cmd)"
   # build
-  nos_run_subprocess "go build" "$(build_cmd)"
+  nos_run_process "go build" "$(build_cmd)"
   cd - >/dev/null
 }
