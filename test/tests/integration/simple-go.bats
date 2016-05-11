@@ -12,7 +12,7 @@ payload() {
   "cache_dir": "/tmp/cache",
   "etc_dir": "/data/etc",
   "env_dir": "/data/etc/env.d",
-  "config": {"package": "local/simple-go", "runtime": "go-1.5"}
+  "config": {"package": "local/simple-go"}
 }
 END
 }
@@ -42,6 +42,8 @@ setup() {
 
 @test "boxfile" {
   run /engine/bin/boxfile "$(payload)"
+
+  echo "$output"
 
   [ "$status" -eq 0 ]
 }

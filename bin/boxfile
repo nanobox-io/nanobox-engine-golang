@@ -12,7 +12,12 @@ nos_init "$@"
 . ${engine_lib_dir}/golang.sh
 
 if [ -z "$(nos_payload "config_package")" ]; then
-	>&2 echo "This engine requires 'package' to be set in the config"
+	>&2 echo "This engine requires 'package' to be set in the config of the code.build"
+	>&2 echo "Please make sure the boxfile.yml has something like this:"
+	>&2 echo ""
+	>&2 echo "code.build:"
+	>&2 echo "  config:"
+	>&2 echo "    package: example/package"
 	exit 1
 fi
 
