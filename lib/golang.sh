@@ -1,6 +1,9 @@
 # -*- mode: bash; tab-width: 2; -*-
 # vim: ts=2 sw=2 ft=bash noet
 
+# source nodejs
+. ${engine_lib_dir}/nodejs.sh
+
 # Copy the compiled binary into the app directory to run live
 publish_release() {
   nos_print_bullet "Moving compiled binary into app directory..."
@@ -38,12 +41,29 @@ runtime() {
 
 # Install the golang runtime.
 install_runtime() {
-  nos_install "$(runtime)" 'mercurial' 'git' 'bzr'
+  pkgs=($(runtime) 'mercurial' 'git' 'bzr')
+
+  if [[ "$(is_nodejs_required)" = "true" ]]; then
+    pkgs+=("$(nodejs_dependencies)")
+  fi
+
+  nos_install ${pkgs[@]}
 }
 
 # Uninstall build dependencies
-uninstall_build_dependencies() {
-  nos_uninstall 'go' 'mercurial' 'git' 'bzr'
+uninstall_build_packages() {
+  # currently ruby doesn't install any build-only deps... I think
+  pkgs=('go' 'mercurial' 'git' 'bzr')
+
+  # if nodejs is required, let's fetch any node build deps
+  if [[ "$(is_nodejs_required)" = "true" ]]; then
+    pkgs+=("$(nodejs_build_dependencies)")
+  fi
+
+  # if pkgs isn't empty, let's uninstall what we don't need
+  if [[ ${#pkgs[@]} -gt 0 ]]; then
+    nos_uninstall ${pkgs[@]}
+  fi
 }
 
 # Allow users to specify a custom fetch command to fetch dependencies
