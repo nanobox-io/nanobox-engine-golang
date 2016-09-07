@@ -11,10 +11,7 @@ nos_init "$@"
 # source common lib
 . ${engine_lib_dir}/golang.sh
 
-# Remove build dependencies to ensure the build env is small
-uninstall_build_dependencies
-
-# Clean the build cruft out of the environment
-clean_env
+# copy the release into the live code directory
+publish_release
 
 exit 0

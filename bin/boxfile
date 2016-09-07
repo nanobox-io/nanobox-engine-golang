@@ -3,7 +3,7 @@
 # vim: ts=2 sw=2 ft=bash noet
 
 # source the Nos framework
-. /opt/nos/common.sh
+. /opt/nanobox/nos/common.sh
 
 # initialize Nos with the original arguments
 nos_init "$@"
@@ -11,6 +11,23 @@ nos_init "$@"
 # source common lib
 . ${engine_lib_dir}/golang.sh
 
-# dynamically generate a Boxfile from a template,
-# and print to stdout
-golang_create_boxfile
+if [ -z "$(nos_payload "config_package")" ]; then
+	>&2 echo "This engine requires 'package' to be set in the config of the code.build"
+	>&2 echo "Please make sure the boxfile.yml has something like this:"
+	>&2 echo ""
+	>&2 echo "code.build:"
+	>&2 echo "  config:"
+	>&2 echo "    package: example/package"
+	exit 1
+fi
+
+cat <<-END
+dev:
+  cwd: $(package_path)
+
+code.build:
+  lib_dirs:
+    - .gopath
+END
+
+exit 0
