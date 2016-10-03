@@ -1,9 +1,6 @@
 # -*- mode: bash; tab-width: 2; -*-
 # vim: ts=2 sw=2 ft=bash noet
 
-# source nodejs
-. ${engine_lib_dir}/nodejs.sh
-
 # Copy the compiled binary into the app directory to run live
 publish_release() {
   nos_print_bullet "Moving compiled binary into app directory..."
@@ -36,16 +33,12 @@ package_name() {
 # within the Boxfile, then will rely on default_runtime to
 # provide a sensible default
 runtime() {
-  echo $(nos_validate "$(nos_payload "config_runtime")" "string" "go-1.6")
+  echo $(nos_validate "$(nos_payload "config_runtime")" "string" "go-1.7")
 }
 
 # Install the golang runtime.
 install_runtime() {
   pkgs=($(runtime) 'mercurial' 'git' 'bzr')
-
-  if [[ "$(is_nodejs_required)" = "true" ]]; then
-    pkgs+=("$(nodejs_dependencies)")
-  fi
 
   nos_install ${pkgs[@]}
 }
@@ -54,11 +47,6 @@ install_runtime() {
 uninstall_build_packages() {
   # currently ruby doesn't install any build-only deps... I think
   pkgs=('go' 'mercurial' 'git' 'bzr')
-
-  # if nodejs is required, let's fetch any node build deps
-  if [[ "$(is_nodejs_required)" = "true" ]]; then
-    pkgs+=("$(nodejs_build_dependencies)")
-  fi
 
   # if pkgs isn't empty, let's uninstall what we don't need
   if [[ ${#pkgs[@]} -gt 0 ]]; then
