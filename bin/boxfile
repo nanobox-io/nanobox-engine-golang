@@ -24,6 +24,9 @@ fi
 cat <<-END
 dev:
   cwd: $(package_path)
+code.build:
+  lib_dirs:
+    - .gopath
 END
 
 exit 0
