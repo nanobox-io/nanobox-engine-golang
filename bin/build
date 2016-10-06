@@ -12,9 +12,12 @@ nos_init "$@"
 . ${engine_lib_dir}/golang.sh
 
 # install go
-install_runtime
+install_runtime_packages
 
 # prepare env
 prep_env
+
+# fetch dependencies
+fetch_deps
 
 exit 0

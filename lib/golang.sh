@@ -37,7 +37,7 @@ runtime() {
 }
 
 # Install the golang runtime.
-install_runtime() {
+install_runtime_packages() {
   pkgs=($(runtime) 'mercurial' 'git' 'bzr')
 
   nos_install ${pkgs[@]}
@@ -56,12 +56,12 @@ uninstall_build_packages() {
 
 # Allow users to specify a custom fetch command to fetch dependencies
 fetch_cmd() {
-  echo $(nos_validate "$(nos_payload "config_fetch")" "string" "go get")
+  echo $(nos_validate "$(nos_payload "config_fetch")" "string" "go get -v")
 }
 
 # Allow users to specify a custom build command to compile the app
 build_cmd() {
-  echo $(nos_validate "$(nos_payload "config_build")" "string" "go build")
+  echo $(nos_validate "$(nos_payload "config_build")" "string" "go build -v")
 }
 
 # Prepare the environment for golang builds
@@ -86,7 +86,8 @@ prep_env() {
   # Ensure a bin directory exists within the GOPATH
   mkdir -p $(nos_code_dir)/.gopath/bin
   # Add the GOPATH/bin directory to the PATH
-  nos_persist_evar 'PATH' "$(nos_code_dir)/.gopath/bin:$PATH"
+  nos_set_evar      'PATH' "$(nos_code_dir)/.gopath/bin:$PATH"
+  nos_persist_evar  'PATH' "$(nos_code_dir)/.gopath/bin:$PATH"
 }
 
 # The GOPATH was manipulated in prep_env to accomodate building the app.
@@ -97,12 +98,18 @@ clean_env() {
   # NOTE: figure out how to remove gopath from the PATH and re-persist the evar
 }
 
+# Fetch golang deps
+fetch_deps() {
+  cd $(package_path)
+  # fetch dependencies
+  nos_run_process "Fetching dependencies" "$(fetch_cmd)"  
+  cd - >/dev/null
+}
+
 # Compile the go application
 compile() {
   cd $(package_path)
-  # fetch dependencies
-  nos_run_process "go get" "$(fetch_cmd)"
   # build
-  nos_run_process "go build" "$(build_cmd)"
+  nos_run_process "Compiling application" "$(build_cmd)"
   cd - >/dev/null
 }
