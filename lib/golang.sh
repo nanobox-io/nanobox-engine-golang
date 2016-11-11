@@ -10,9 +10,9 @@ publish_release() {
 # Extract the package configuration from the boxfile
 #
 # Ex:
-# code.build:
+# run.config:
 #   engine: golang
-#   config:
+#   engine.config:
 #     package: 'github.com/tylerflint/purple'
 package() {
   echo "$(nos_payload "config_package")"

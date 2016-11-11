@@ -6,7 +6,7 @@ This is a Go engine used to launch Go apps on [Nanobox](http://nanobox.io).
 To use the Go engine, specify `golang` as your `engine` in your boxfile.yml.
 
 ```yaml
-code.build:
+run.config:
   engine: golang
 ```
 
@@ -25,8 +25,8 @@ This engine exposes configuration options through the [boxfile.yml](http://docs.
 
 #### Overview of Boxfile Configuration Options
 ```yaml
-code.build:
-  config:
+run.config:
+  engine.config:
     # Go Settings
     runtime: go-1.6
     package: 'github.com/username/code'
@@ -56,8 +56,8 @@ go-1.5
 go-1.6 *(default)*
 
 ```yaml
-code.build:
-  config:
+run.config:
+  engine.config:
     runtime: go-1.6
 ```
 
@@ -67,8 +67,8 @@ code.build:
 Specifies the path to the directory in which your code is stored. This can be a local or remote directory.
 
 ```yaml
-code.build:
-  config:
+run.config:
+  engine.config:
     package: 'github.com/username/code'
 ```
 
@@ -78,8 +78,8 @@ code.build:
 Defines the command to run to load dependencies in the build process.
 
 ```yaml
-code.build:
-  config:
+run.config:
+  engine.config:
     fetch: 'go get'
 ```
 
@@ -89,8 +89,8 @@ code.build:
 Defines the command to run to compile your code in the build process.
 
 ```yaml
-code.build:
-  config:
+run.config:
+  engine.config:
     build: 'go build'
 ```
 
@@ -105,8 +105,8 @@ Many applications utilize Javascript tools in some way. This engine allows you t
 Specifies which Node.js runtime and version to use. You can view the available Node.js runtimes in the [Node.js engine documentation](https://github.com/nanobox-io/nanobox-engine-nodejs#runtime).
 
 ```yaml
-code.build:
-  config:
+run.config:
+  engine.config:
     nodejs_runtime: nodejs-4.4
 ```
 
