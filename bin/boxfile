@@ -31,7 +31,7 @@ fi
 cat <<-END
 run.config:
 	cwd: $(package_path)
-  lib_dirs:
+  cache_dirs:
     - .gopath
 END
 
