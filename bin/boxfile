@@ -30,7 +30,7 @@ fi
 
 cat <<-END
 run.config:
-	cwd: $(package_path)
+  cwd: $(package_path)
   cache_dirs:
     - .gopath
 END
