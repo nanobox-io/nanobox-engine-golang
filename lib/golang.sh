@@ -85,9 +85,6 @@ prep_env() {
   fi
   # Ensure a bin directory exists within the GOPATH
   mkdir -p $(nos_code_dir)/.gopath/bin
-  # Add the GOPATH/bin directory to the PATH
-  nos_set_evar      'PATH' "$(nos_code_dir)/.gopath/bin:$PATH"
-  nos_persist_evar  'PATH' "$(nos_code_dir)/.gopath/bin:$PATH"
 }
 
 # The GOPATH was manipulated in prep_env to accomodate building the app.

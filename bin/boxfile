@@ -33,6 +33,8 @@ run.config:
   cwd: $(package_path)
   cache_dirs:
     - .gopath
+  extra_path_dirs:
+    - $(nos_code_dir)/.gopath/bin
 END
 
 exit 0
