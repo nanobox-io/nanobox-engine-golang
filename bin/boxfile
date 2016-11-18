@@ -15,12 +15,12 @@ if [ -z "$(nos_payload "config_package")" ]; then
 	>&2 echo
 	>&2 echo ":::::::::::::::::::::::::::::::::::::::::::::::::::::::: INVALID BOXFILE.YML !!!"
 	>&2 echo
-	>&2 echo "This engine requires 'package' to be set in code.build's config section."
+	>&2 echo "This engine requires 'package' to be set in run.config's config section."
 	>&2 echo
 	>&2 echo "Example:"
 	>&2 echo ""
-	>&2 echo "code.build:"
-	>&2 echo "  config:"
+	>&2 echo "run.config:"
+	>&2 echo "  engine.config:"
 	>&2 echo "    package: github.com/nanobox-io/nanobox"
 	>&2 echo
 	>&2 echo "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::"
@@ -29,11 +29,12 @@ if [ -z "$(nos_payload "config_package")" ]; then
 fi
 
 cat <<-END
-dev:
+run.config:
   cwd: $(package_path)
-code.build:
-  lib_dirs:
+  cache_dirs:
     - .gopath
+  extra_path_dirs:
+    - $(nos_code_dir)/.gopath/bin
 END
 
 exit 0

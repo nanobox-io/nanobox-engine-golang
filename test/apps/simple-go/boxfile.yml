@@ -1,4 +1,4 @@
-code.build:
+run.config:
   engine: golang
-  config:
+  engine.config:
     package: github.com/nanobox-io/purple
