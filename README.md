@@ -32,19 +32,7 @@ run.config:
     package: 'github.com/username/code'
     fetch: 'go get'
     build: 'go build'
-
-    # Node.js Settings
-    nodejs_runtime: nodejs-4.4
 ```
-
-##### Quick Links
-[Go Settings](#go-settings)  
-[Node.js Settings](#nodejs-settings)
-
----
-
-### Go Settings
-The following setting allows you to define your Go runtime environment.
 
 ---
 
@@ -96,21 +84,5 @@ run.config:
 
 ---
 
-### Node.js Settings
-Many applications utilize Javascript tools in some way. This engine allows you to specify which Node.js runtime you'd like to use.
-
----
-
-#### nodejs_runtime
-Specifies which Node.js runtime and version to use. You can view the available Node.js runtimes in the [Node.js engine documentation](https://github.com/nanobox-io/nanobox-engine-nodejs#runtime).
-
-```yaml
-run.config:
-  engine.config:
-    nodejs_runtime: nodejs-4.4
-```
-
----
-
 ## Help & Support
-This is a Go engine provided by [Nanobox](http://nanobox.io). If you need help with this engine, you can reach out to us in the [#nanobox IRC channel](http://webchat.freenode.net/?channels=nanobox). If you are running into an issue with the engine, feel free to [create a new issue on this project](https://github.com/nanobox-io/nanobox-engine-golang/issues/new).
+This is a Go engine provided by [Nanobox](http://nanobox.io). If you are running into an issue with the engine, feel free to [create a new issue on this project](https://github.com/nanobox-io/nanobox-engine-golang/issues/new).
