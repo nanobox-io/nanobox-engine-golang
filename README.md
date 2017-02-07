@@ -11,7 +11,7 @@ run.config:
 ```
 
 ## Build Process
-When [running a build](https://docs.nanboox.io/cli/build/), this engine compiles code by doing the following:
+When building your runtime, this engine compiles code by doing the following:
 
 ```
 > go get
