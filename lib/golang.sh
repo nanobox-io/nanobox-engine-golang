@@ -74,8 +74,6 @@ build_cmd() {
 prep_env() {
   # Set the GOPATH environment variable to the .gopath lib_dir
   nos_persist_evar 'GOPATH' "$(nos_code_dir)/.gopath"
-  nos_persist_evar 'CODE_DIR' "$(nos_code_dir)"
-  nos_persist_evar 'APP_DIR' "$(nos_app_dir)"
   # Symlink the source code into the gopath at the specified package location
   if [ ! -L $(package_path) ]; then
     # create the full path structure
