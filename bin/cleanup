@@ -12,7 +12,7 @@ nos_init "$@"
 . ${engine_lib_dir}/golang.sh
 
 # Remove build dependencies to ensure the build env is small
-uninstall_build_dependencies
+# uninstall_build_dependencies # todo: make this function
 
 # Clean the build cruft out of the environment
 clean_env
