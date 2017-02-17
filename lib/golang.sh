@@ -33,7 +33,7 @@ package_name() {
 # within the Boxfile, then will rely on default_runtime to
 # provide a sensible default
 runtime() {
-  echo $(nos_validate "$(nos_payload "config_runtime")" "string" "go-1.7")
+  echo $(nos_validate "$(nos_payload "config_runtime")" "string" "go-1.8")
 }
 
 # Install the golang runtime.
