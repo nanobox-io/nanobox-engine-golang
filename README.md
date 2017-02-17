@@ -11,7 +11,7 @@ run.config:
 ```
 
 ## Build Process
-When building your runtime, this engine compiles code by doing the following:
+When [building your runtime](https://docs.nanobox.io/cli/build-runtime), this engine compiles code by doing the following:
 
 ```
 > go get
@@ -21,7 +21,7 @@ When building your runtime, this engine compiles code by doing the following:
 *These commands can be modified using the [fetch](#fetch) and [build](#build) config options*
 
 ## Configuration Options
-This engine exposes configuration options through the [boxfile.yml](http://docs.nanobox.io/app-config/boxfile/), a yaml config file used to provision and configure your app's infrastructure when using Nanobox. This engine makes the following options available.
+This engine exposes configuration options through the [boxfile.yml](https://docs.nanobox.io/boxfile), a yaml config file used to provision and configure your app's infrastructure when using Nanobox. This engine makes the following options available.
 
 #### Overview of Boxfile Configuration Options
 ```yaml
@@ -83,6 +83,9 @@ run.config:
 ```
 
 ---
+
+## TODO
+- Make cleanup function `uninstall_build_dependencies`
 
 ## Help & Support
 This is a Go engine provided by [Nanobox](http://nanobox.io). If you are running into an issue with the engine, feel free to [create a new issue on this project](https://github.com/nanobox-io/nanobox-engine-golang/issues/new).
