@@ -39,9 +39,9 @@ run.config:
 #### runtime
 Specifies which Golang runtime to use. The following runtimes are available:
 
-go-1.4
-go-1.5
-go-1.6 *(default)*
+- go-1.4
+- go-1.5
+- go-1.6 *(default)*
 
 ```yaml
 run.config:
