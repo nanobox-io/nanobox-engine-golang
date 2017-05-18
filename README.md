@@ -28,7 +28,7 @@ This engine exposes configuration options through the [boxfile.yml](https://docs
 run.config:
   engine.config:
     # Go Settings
-    runtime: go-1.6
+    runtime: go-1.8
     package: 'github.com/username/code'
     fetch: 'go get'
     build: 'go build'
@@ -41,12 +41,14 @@ Specifies which Golang runtime to use. The following runtimes are available:
 
 - go-1.4
 - go-1.5
-- go-1.6 *(default)*
+- go-1.6
+- go-1.7
+- go-1.8 *(default)*
 
 ```yaml
 run.config:
   engine.config:
-    runtime: go-1.6
+    runtime: go-1.8
 ```
 
 ---
