@@ -26,6 +26,7 @@ This engine exposes configuration options through the [boxfile.yml](https://docs
 #### Overview of Boxfile Configuration Options
 ```yaml
 run.config:
+  engine: golang
   engine.config:
     # Go Settings
     runtime: go-1.8
@@ -44,9 +45,11 @@ Specifies which Golang runtime to use. The following runtimes are available:
 - go-1.6
 - go-1.7
 - go-1.8 *(default)*
+- go-1.9
 
 ```yaml
 run.config:
+  engine: golang
   engine.config:
     runtime: go-1.8
 ```
@@ -58,6 +61,7 @@ Specifies the path to the directory in which your code is stored. This can be a 
 
 ```yaml
 run.config:
+  engine: golang
   engine.config:
     package: 'github.com/username/code'
 ```
@@ -69,6 +73,7 @@ Defines the command to run to load dependencies in the build process.
 
 ```yaml
 run.config:
+  engine: golang
   engine.config:
     fetch: 'go get'
 ```
@@ -80,6 +85,7 @@ Defines the command to run to compile your code in the build process.
 
 ```yaml
 run.config:
+  engine: golang
   engine.config:
     build: 'go build'
 ```
